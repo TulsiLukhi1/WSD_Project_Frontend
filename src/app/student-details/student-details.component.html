@@ -1,0 +1,46 @@
+
+
+<div class="container">
+  <app-student-from></app-student-from>
+</div>
+
+
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Id</th>
+      <th>Student Name</th>
+      <th>Roll Number</th>
+      <th>Course</th>
+      <th>Semester</th>
+      <th>Branch</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let student of studService.listStudents;">
+      <td>{{student.studentID}}</td>
+      <td>{{student.studentName}}</td>
+      <td>{{student.rollNumber}}</td>
+      <td>{{student.course}}</td>
+      <td>{{student.semester}}</td>
+      <td>{{student.branch}}</td>
+      <td>
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Actions
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#" (click)="populateStudent(student)">Edit</a>
+            <a class="dropdown-item" href="#" (click)="deleteStud(student.studentID)">Delete</a>
+            
+          </div>
+        </div>
+      </td>
+
+      
+    </tr>
+  </tbody>
+</table>

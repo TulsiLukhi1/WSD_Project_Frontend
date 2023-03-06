@@ -1,0 +1,115 @@
+
+<div>
+    <form autocomplete="off" #myForm="ngForm" (ngSubmit)="myForm.form.valid && studentFormSubmit(myForm)" >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="hidden" name="id" [value]="studService.studentData.studentID">
+
+                    <label for="name" class="float-left">Name</label>
+                    <div *ngIf="name.invalid && (name.touched || name.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="text" name="name" class="form-control" placeholder="Enter Name" #name="ngModel" [(ngModel)]="studService.studentData.studentName" required>
+                </div>
+ 
+                <div class="col-md-6">
+                    <label for="name" class="float-left">Roll Number</label>
+                    <div *ngIf="rollnumber.invalid && (rollnumber.touched || rollnumber.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="text" name="rollnumber" class="form-control" placeholder="Enter Roll Number" #rollnumber="ngModel" [(ngModel)]="studService.studentData.rollNumber" required>
+                </div>
+
+                
+ 
+                
+ 
+                
+            </div>
+            <div>
+                <h1></h1>
+            </div>
+            <div class="row">
+
+
+                <div class="col-md-4">
+                    <label for="course" class="label float-left">Course</label>
+                    <div *ngIf="course.touched && course.value===0" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    
+                    <select name="course" class="form-control" #course="ngModel" [(ngModel)]="studService.studentData.course" required>
+                        <option value=" " selected disabled>Please Select</option>
+                        
+                        <option>B.Tech</option>
+                        <option>M.Tech</option>
+                        <option>MBA</option>
+                        <option>B.E.</option>
+                        <option>Diploma</option>
+                        <option>Pharmacy</option>
+                        <option>Hotel Managment</option>
+                    </select>
+                
+                </div>
+
+                
+
+
+                <div class="col-md-4">
+                    <label for="semester" class="label float-left">Semester</label>
+                    <div *ngIf="semester.touched && semester.value===0" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    
+                    <select name="semester" class="form-control" #semester="ngModel" [(ngModel)]="studService.studentData.semester" required>
+                        <option value=" " selected disabled>Please Select</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                    </select>
+                
+                </div>
+
+
+                <div class="col-md-4">
+                    <label for="branch" class="label float-left">Branch</label>
+                    <div *ngIf="branch.touched && branch.value===0" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    
+                    <select name="branch" class="form-control" #branch="ngModel" [(ngModel)]="studService.studentData.branch" required>
+                        <option value=" " selected disabled>Please Select</option>
+                        <option>Computer Science</option>
+                        <option>IT Engineering</option>
+                        <option>Chemical Engineering</option>
+                        <option>Mechanical Engineering</option>
+                        <option>EC Engineering</option>
+                        <option>IC Engineering</option>
+                        <option>Detal</option>
+                    </select>
+                
+                </div>
+
+            </div>
+ 
+            
+            
+
+            <div class="row mt-4">
+                <!-- <div class="col-md-8"></div> -->
+                <div class="col-md-2">
+                    <button type="submit" [disabled]="course.value===0 || branch.value===0 || semester.value===0 " class="btn btn-success btn-block">Save</button>
+                </div>
+               
+            </div>
+ 
+ 
+        </div>
+    </form>
+ </div>
